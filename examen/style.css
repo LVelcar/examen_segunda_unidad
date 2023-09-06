@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    display: relative;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:darkgray;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+}
+
+canvas {
+    background-color: white;
+}
+
