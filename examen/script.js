@@ -40,21 +40,19 @@ class Rectangulo {
     }
 }
 
-const player = new Rectangulo(50, 50, 30, 30, "blue");
-const target = new Rectangulo(540, 540, 30, 30, "red");
+const player = new Rectangulo(10, 10, 30, 30, "blue");
 
 // Crear obstáculos del laberinto
-walls.push(new Rectangulo(100, 100, 30, 200, "gray"));
-walls.push(new Rectangulo(100, 300, 200, 30, "gray"));
-walls.push(new Rectangulo(200, 100, 30, 200, "gray"));
-walls.push(new Rectangulo(200, 200, 100, 30, "gray"));
-walls.push(new Rectangulo(300, 100, 30, 200, "gray"));
-walls.push(new Rectangulo(300, 300, 30, 100, "gray"));
-walls.push(new Rectangulo(400, 100, 30, 200, "gray"));
+walls.push(new Rectangulo(10, 100, 10, 200, "gray"));
+walls.push(new Rectangulo(100, 300, 200, 10, "gray"));
+walls.push(new Rectangulo(200, 100, 10, 200, "gray"));
+walls.push(new Rectangulo(200, 200, 200, 10, "gray"));
+walls.push(new Rectangulo(300, 100, 10, 200, "gray"));
+walls.push(new Rectangulo(300, 300, 10, 100, "gray"));
+walls.push(new Rectangulo(400, 100, 10, 200, "gray"));
 
-// Puntos de inicio y meta adicionales
-const start1 = new Rectangulo(50, 50, 30, 30, "green");
-const start2 = new Rectangulo(50, 540, 30, 30, "green");
+//Metas.
+const target = new Rectangulo(540, 540, 30, 30, "red");
 const target2 = new Rectangulo(540, 50, 30, 30, "red");
 
 
@@ -84,7 +82,7 @@ function update() {
     if (!pause) {
         currentTime = new Date();
         var elapsedTime = (currentTime - startTime) / 1000;
-        gameTimeElement.textContent = elapsedTime.toFixed(2) + " s";
+        gameTimeElement.textContent = elapsedTime.toFixed(1) + " s";
 
         switch (dir) {
             case 87:
@@ -123,14 +121,6 @@ function update() {
         }
     }
 
-    // Cambiar posición de la meta si se alcanza
-    if (player.seTocan(target)) {
-        t_x = Math.random() * (canvas.width - target.w);
-        t_y = Math.random() * (canvas.height - target.h);
-        target.x = t_x;
-        target.y = t_y;
-    }
-
     // Verificar si el jugador llegó a alguna de las metas
     if (player.seTocan(target) || player.seTocan(target2)) {
         alert("¡Has ganado!");
@@ -155,9 +145,7 @@ function repaint() {
             walls[i].paint(ctx);
         }
 
-        // Pintar puntos de inicio y meta
-        start1.paint(ctx);
-        start2.paint(ctx);
+        // Pintar puntos de meta.
         target.paint(ctx);
         target2.paint(ctx);
 
@@ -169,32 +157,25 @@ function repaint() {
 
     } else {
         // Pantalla de pausa
-        ctx.fillStyle = "rgba(154, 160, 154, 0.2)";
+        ctx.fillStyle = "rgba(237, 233, 231 , 0.6)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.font = "30px Verdana";
+        ctx.font = "50px Verdana";
+        ctx.fontWeight = "Bold";
         ctx.fillStyle = "black";
-        ctx.fillText("P A U S A", 180, 270);
+        ctx.fillText("P A U S A", 285, 295);
     }
 }
 
 // Función para reiniciar el juego
 function resetGame() {
-    player.x = 50;
-    player.y = 50;
+    player.x = 10;
+    player.y = 10;
     dir = 0;
     startTime = new Date();
-    gameTimeElement.textContent = "0.00 s";
-}
-
-// Función para calcular el tiempo de carga
-function calculateLoadTime() {
-    const endTime = new Date();
-    const loadTime = (endTime - startTime) / 1000; // Tiempo en segundos
-    loadTimeElement.textContent = loadTime.toFixed(2);
+    gameTimeElement.textContent = "0.0 s";
 }
 
 // Iniciar el juego y calcular el tiempo de carga
 startTime = new Date();
 window.requestAnimationFrame(update);
-calculateLoadTime();
