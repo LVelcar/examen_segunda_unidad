@@ -28,6 +28,20 @@ p {
     animation: floatingText 5s ease-in-out infinite;
 }
 
+.life-bar {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+#player-life {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    transition: width 0.2 ease-in-out;
+    display: inline-block;
+}
 
 span#game-time {
     font-weight: bold;

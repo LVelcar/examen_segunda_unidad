@@ -1,6 +1,5 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
-const loadTimeElement = document.getElementById("load-time");
 const gameTimeElement = document.getElementById("game-time");
 
 // Variables del juego
@@ -12,6 +11,11 @@ var speed = 2;
 let startTime = null;
 let currentTime = null;
 let elapsedTime = 0;
+let playerLife = 5; 
+const maxPlayerLife = 5;
+let playerOver = false;
+
+
 
 // Definimos la clase para crear nuestros objetos.
 class Rectangulo {
@@ -55,7 +59,6 @@ walls.push(new Rectangulo(400, 100, 10, 200, "gray"));
 const target = new Rectangulo(540, 540, 30, 30, "red");
 const target2 = new Rectangulo(540, 50, 30, 30, "red");
 
-
 // Evento para manejar las teclas
 document.addEventListener("keydown", (e) => {
     switch (e.keyCode) {
@@ -74,12 +77,15 @@ document.addEventListener("keydown", (e) => {
         case 32:
             pause = !pause;
             break;
+        case 82: 
+            resetGame();
+            break;
     }
 });
 
 // Función para actualizar el juego
 function update() {
-    if (!pause) {
+    if (!pause && !playerOver) {
         currentTime = new Date();
         var elapsedTime = (currentTime - startTime) / 1000;
         gameTimeElement.textContent = elapsedTime.toFixed(1) + " s";
@@ -118,6 +124,14 @@ function update() {
                     break;
             }
             dir = 0;
+
+            playerLife--;
+            updatePlayerLife();
+
+            if (playerLife <= 0) {
+                playerOver = true;
+                gameOver();
+            }
         }
     }
 
@@ -133,7 +147,7 @@ function update() {
 
 // Función para volver a pintar el canvas
 function repaint() {
-    if (!pause) {
+    if (!pause && !playerOver) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Pintamos al jugador con un color fijo
@@ -154,6 +168,8 @@ function repaint() {
         }
         currentTime = performance.now();
         elapsedTime = (currentTime - startTime) / 1000; // Tiempo en segundos.
+      
+    } else if (playerOver) {
 
     } else {
         // Pantalla de pausa
@@ -174,6 +190,34 @@ function resetGame() {
     dir = 0;
     startTime = new Date();
     gameTimeElement.textContent = "0.0 s";
+
+    playerLife = maxPlayerLife;
+    updatePlayerLife();
+    playerOver = false;
+
+    pause = false;
+    repaint();
+}
+
+// Función para la barra de vida.
+function updatePlayerLife() {
+    const lifeBar = document.getElementById("player-life");
+    const percentage = (playerLife / maxPlayerLife) * 100;
+    lifeBar.style.width = percentage + "%";
+}
+
+// Función para visualizar la pantalla Game Over.
+function gameOver() {
+    playerOver = true;
+    pause = true;
+    ctx.fillStyle = "rgba(237, 233, 231, 0.6)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = "50px Verdana";
+    ctx.fontWeight = "Bold";
+    ctx.fillStyle = "black";
+    ctx.fillText("GAME OVER", 250, 295);
+
 }
 
 // Iniciar el juego y calcular el tiempo de carga
