@@ -9,10 +9,22 @@
 <body>
     <div id="background"></div>
     <h1>Juego de Laberinto</h1>
-    <canvas id="myCanvas" width="800" height="600"></canvas>
-    <p>Tiempo de juego: <span id="game-time">0.0</span></p>
     <div class="life-bar">
         <div id="player-life"></div>
+    </div>
+    <p>Tiempo de juego: <span id="game-time">0.0</span></p>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <div class="floating-container">
+        <div class="floating-box">
+            <p>W = Arriba</p>
+            <p>S = Abajo</p>
+            <p>A = Izquierda</p>
+            <p>D = Derecha</p>
+            <p>R = Reiniciar</p>
+            <p>Espacio = Pausa</p>
+            <p>Barra = Vida</p>
+            <p>Nota: Cuidado con las <br>vidas de tu patrulla.</p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

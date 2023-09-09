@@ -15,8 +15,6 @@ let playerLife = 5;
 const maxPlayerLife = 5;
 let playerOver = false;
 
-
-
 // Definimos la clase para crear nuestros objetos.
 class Rectangulo {
     constructor(x, y, w, h, c) {
