@@ -14,6 +14,7 @@ let elapsedTime = 0;
 let playerLife = 5; 
 const maxPlayerLife = 5;
 let playerOver = false;
+let hasWon = false;
 
 // Definimos la clase para crear nuestros objetos.
 class Rectangulo {
@@ -76,14 +77,18 @@ document.addEventListener("keydown", (e) => {
             pause = !pause;
             break;
         case 82: 
+        if (!hasWon) {
+            // Solo permite el reinicio si no ha ganado
             resetGame();
-            break;
+        }
+        break;
     }
 });
 
 // Función para actualizar el juego
 function update() {
     if (!pause && !playerOver) {
+        //Inicializamos el tiempo de juego.
         currentTime = new Date();
         var elapsedTime = (currentTime - startTime) / 1000;
         gameTimeElement.textContent = elapsedTime.toFixed(1) + " s";
@@ -123,9 +128,11 @@ function update() {
             }
             dir = 0;
 
+            //Resta las vidas del jugador
             playerLife--;
             updatePlayerLife();
 
+            //Verifica que el jugador haya agotado sus vidas para mostrar el Game Over.
             if (playerLife <= 0) {
                 playerOver = true;
                 gameOver();
@@ -134,14 +141,28 @@ function update() {
     }
 
     // Verificar si el jugador llegó a alguna de las metas
-    if (player.seTocan(target) || player.seTocan(target2)) {
-        alert("¡Has ganado!");
-        resetGame();
+    if (!hasWon && (player.seTocan(target) || player.seTocan(target2))) {
+        // Obtener el tiempo de juego actual
+        const victoryTime = (currentTime - startTime) / 1000;
+        document.getElementById("victory-time").textContent = victoryTime.toFixed(1);
+
+        // Mostrar el mensaje de victoria
+        document.getElementById("victory-message").classList.remove("hidden");
+        pause = true; // Pausar el juego
+        hasWon = true; // Establecer la bandera de victoria a true
     }
 
     repaint();
     window.requestAnimationFrame(update);
 }
+
+//Botón para reiniciar el juego.
+document.getElementById("play-again-button").addEventListener("click", function () {
+    document.getElementById("victory-message").classList.add("hidden");
+    resetGame();
+    hasWon = false; // Restablecer la bandera de victoria a false
+    pause = false;
+});
 
 // Función para volver a pintar el canvas
 function repaint() {
@@ -161,6 +182,7 @@ function repaint() {
         target.paint(ctx);
         target2.paint(ctx);
 
+        //Evaluamos el tiempo de juego.
         if (!startTime) {
             startTime = performance.now();
         }
@@ -183,6 +205,7 @@ function repaint() {
 
 // Función para reiniciar el juego
 function resetGame() {
+    //Reiniciamos variables y repintamos el juego.
     player.x = 10;
     player.y = 10;
     dir = 0;
@@ -215,7 +238,6 @@ function gameOver() {
     ctx.fontWeight = "Bold";
     ctx.fillStyle = "black";
     ctx.fillText("GAME OVER", 250, 295);
-
 }
 
 // Iniciar el juego y calcular el tiempo de carga
