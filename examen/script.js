@@ -292,7 +292,6 @@ walls.push(new Rectangulo(770, 20, 4, 530, "gray"));
 //Metas.
 const target = new Rectangulo(740, 555, 30, 30, "red");
 
-
 // Evento para manejar las teclas
 document.addEventListener("keydown", (e) => {
     switch (e.keyCode) {
@@ -379,11 +378,13 @@ function update() {
     // Verificar si el jugador llegó a alguna de las metas
     if (!hasWon && (player.seTocan(target))) {
         audio3.play();
-        pause = true; // Pausar el juego
-        hasWon = true; // Establecer la bandera de victoria a true
         // Obtener el tiempo de juego actual
         const victoryTime = (currentTime - startTime) / 1000;
         document.getElementById("victory-time").textContent = victoryTime.toFixed(1);
+
+        pause = true; // Pausar el juego
+        hasWon = true; // Establecer la bandera de victoria a true
+        document.getElementById("victory-message").classList.remove("hidden");
     }
 
     repaint();

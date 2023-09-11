@@ -101,7 +101,7 @@ h1:hover, p:hover, span#game-time:hover {
     color: #007bff;
 }
   
-#next-nivel-button {
+#play-again-button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -111,7 +111,7 @@ h1:hover, p:hover, span#game-time:hover {
     border-radius: 5px;
 }
 
-#next-nivel-button:hover {
+#play-again-button:hover {
     background-color: #0056b3;
 }
 
