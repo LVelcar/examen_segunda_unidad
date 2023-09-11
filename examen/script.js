@@ -38,9 +38,6 @@ audio2.src = "assets/choque.mp3";
 let audio3 = new Audio();
 audio3.src = "assets/musica-victoria.mp3";
 
-const backgroundImage = new Image();
-backgroundImage.src = "assets/laberinto2.jpeg"; 
-
 // Definimos la clase para crear nuestros objetos.
 class Rectangulo {
     constructor(x, y, w, h, c) {
@@ -295,10 +292,6 @@ walls.push(new Rectangulo(770, 20, 4, 530, "gray"));
 //Metas.
 const target = new Rectangulo(740, 555, 30, 30, "red");
 
-backgroundImage.onload = function() {
-    // Dibujar la imagen de fondo en el canvas
-    ctx.drawImage(backgroundImage, canvas.width, canvas.height);
-};
 
 // Evento para manejar las teclas
 document.addEventListener("keydown", (e) => {
