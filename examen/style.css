@@ -101,20 +101,6 @@ h1:hover, p:hover, span#game-time:hover {
     color: #007bff;
 }
   
-#play-again-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-  
-#play-again-button:hover {
-    background-color: #0056b3; 
-}
-
 #next-nivel-button {
     background-color: #007bff;
     color: white;

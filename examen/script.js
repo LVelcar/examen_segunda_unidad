@@ -39,7 +39,7 @@ let audio3 = new Audio();
 audio3.src = "assets/musica-victoria.mp3";
 
 const backgroundImage = new Image();
-backgroundImage.src = "assets/laberinto.jpeg"; 
+backgroundImage.src = "assets/laberinto2.jpeg"; 
 
 // Definimos la clase para crear nuestros objetos.
 class Rectangulo {
@@ -70,7 +70,7 @@ class Rectangulo {
 
 const player = new Rectangulo(30, 4, 20, 20, "blue");
 
-// Crear obstáculos del laberinto
+// Crear obstáculos del laberinto.
 // Obstáculos horizontales.
 walls.push(new Rectangulo(15, 20, 5, 560, "gray"));
 walls.push(new Rectangulo(15, 578, 714, 4, "gray"));
@@ -178,11 +178,119 @@ walls.push(new Rectangulo(699, 215, 74, 2, "gray"));
 walls.push(new Rectangulo(699, 355, 74, 2, "gray"));
 walls.push(new Rectangulo(699, 383, 34, 2, "gray"));
 
-// Obstáculos Verticales.
-walls.push(new Rectangulo(62, 22, 3, 52, "gray"));
-walls.push(new Rectangulo(62, 108, 3, 25, "gray"));
-
-
+    // Obstáculos Verticales.
+walls.push(new Rectangulo(63, 22, 3, 52, "gray"));
+walls.push(new Rectangulo(63, 108, 3, 25, "gray"));
+walls.push(new Rectangulo(63, 190, 3, 54, "gray"));
+walls.push(new Rectangulo(63, 275, 3, 25, "gray"));
+walls.push(new Rectangulo(63, 355, 3, 60, "gray"));
+walls.push(new Rectangulo(63, 442, 3, 25, "gray"));
+walls.push(new Rectangulo(101, 49, 3, 51, "gray"));
+walls.push(new Rectangulo(101, 160, 3, 51, "gray"));
+walls.push(new Rectangulo(101, 244, 3, 51, "gray"));
+walls.push(new Rectangulo(101, 327, 3, 25, "gray"));
+walls.push(new Rectangulo(101, 411, 3, 109, "gray"));
+walls.push(new Rectangulo(101, 551, 3, 25, "gray"));
+walls.push(new Rectangulo(138, 190, 3, 81, "gray"));
+walls.push(new Rectangulo(138, 299, 3, 25, "gray"));
+walls.push(new Rectangulo(138, 355, 3, 139, "gray"));
+walls.push(new Rectangulo(175, 75, 3, 87, "gray"));
+walls.push(new Rectangulo(175, 219, 3, 25, "gray"));
+walls.push(new Rectangulo(175, 273, 3, 25, "gray"));
+walls.push(new Rectangulo(175, 357, 3, 25, "gray"));
+walls.push(new Rectangulo(175, 415, 3, 25, "gray"));
+walls.push(new Rectangulo(175, 523, 3, 25, "gray"));
+walls.push(new Rectangulo(212, 20, 3, 55, "gray"));
+walls.push(new Rectangulo(212, 103, 3, 55, "gray"));
+walls.push(new Rectangulo(212, 189, 3, 25, "gray"));
+walls.push(new Rectangulo(212, 249, 3, 25, "gray"));
+walls.push(new Rectangulo(212, 299, 3, 55, "gray"));
+walls.push(new Rectangulo(212, 383, 3, 25, "gray"));
+walls.push(new Rectangulo(212, 440, 3, 25, "gray"));
+walls.push(new Rectangulo(212, 500, 3, 25, "gray"));
+walls.push(new Rectangulo(250, 80, 3, 25, "gray"));
+walls.push(new Rectangulo(250, 162, 3, 25, "gray"));
+walls.push(new Rectangulo(250, 220, 3, 25, "gray"));
+walls.push(new Rectangulo(250, 272, 3, 55, "gray"));
+walls.push(new Rectangulo(250, 357, 3, 25, "gray"));
+walls.push(new Rectangulo(250, 410, 3, 115, "gray"));
+walls.push(new Rectangulo(287, 50, 3, 25, "gray"));
+walls.push(new Rectangulo(287, 105, 3, 25, "gray"));
+walls.push(new Rectangulo(287, 187, 3, 55, "gray"));
+walls.push(new Rectangulo(287, 272, 3, 25, "gray"));
+walls.push(new Rectangulo(287, 362, 3, 105, "gray"));
+walls.push(new Rectangulo(287, 523, 3, 25, "gray"));
+walls.push(new Rectangulo(324, 52, 3, 54, "gray"));
+walls.push(new Rectangulo(324, 136, 3, 54, "gray"));
+walls.push(new Rectangulo(324, 300, 3, 54, "gray"));
+walls.push(new Rectangulo(324, 387, 3, 133, "gray"));
+walls.push(new Rectangulo(361, 52, 3, 25, "gray"));
+walls.push(new Rectangulo(361, 161, 3, 25, "gray"));
+walls.push(new Rectangulo(361, 220, 3, 25, "gray"));
+walls.push(new Rectangulo(361, 276, 3, 25, "gray"));
+walls.push(new Rectangulo(361, 354, 3, 80, "gray"));
+walls.push(new Rectangulo(361, 523, 3, 55, "gray"));
+walls.push(new Rectangulo(399, 20, 3, 25, "gray"));
+walls.push(new Rectangulo(399, 161, 3, 25, "gray"));
+walls.push(new Rectangulo(399, 245, 3, 25, "gray"));
+walls.push(new Rectangulo(399, 415, 3, 54, "gray"));
+walls.push(new Rectangulo(399, 500, 3, 80, "gray"));
+walls.push(new Rectangulo(436, 50, 3, 25, "gray"));
+walls.push(new Rectangulo(436, 132, 3, 25, "gray"));
+walls.push(new Rectangulo(436, 190, 3, 25, "gray"));
+walls.push(new Rectangulo(436, 273, 3, 107, "gray"));
+walls.push(new Rectangulo(436, 410, 3, 25, "gray"));
+walls.push(new Rectangulo(436, 411, 3, 25, "gray"));
+walls.push(new Rectangulo(436, 468, 3, 25, "gray"));
+walls.push(new Rectangulo(436, 523, 3, 25, "gray"));
+walls.push(new Rectangulo(473, 20, 3, 25, "gray"));
+walls.push(new Rectangulo(473, 104, 3, 25, "gray"));
+walls.push(new Rectangulo(473, 244, 3, 25, "gray"));
+walls.push(new Rectangulo(473, 292, 3, 65, "gray"));
+walls.push(new Rectangulo(473, 383, 3, 25, "gray"));
+walls.push(new Rectangulo(473, 440, 3, 25, "gray"));
+walls.push(new Rectangulo(473, 498, 3, 25, "gray"));
+walls.push(new Rectangulo(510, 48, 3, 55, "gray"));
+walls.push(new Rectangulo(510, 138, 3, 52, "gray"));
+walls.push(new Rectangulo(510, 243, 3, 25, "gray"));
+walls.push(new Rectangulo(510, 303, 3, 25, "gray"));
+walls.push(new Rectangulo(510, 359, 3, 25, "gray"));
+walls.push(new Rectangulo(510, 412, 3, 25, "gray"));
+walls.push(new Rectangulo(510, 523, 3, 25, "gray"));
+walls.push(new Rectangulo(547, 190, 3, 55, "gray"));
+walls.push(new Rectangulo(547, 327, 3, 25, "gray"));
+walls.push(new Rectangulo(547, 387, 3, 25, "gray"));
+walls.push(new Rectangulo(547, 440, 3, 55, "gray"));
+walls.push(new Rectangulo(547, 550, 3, 25, "gray"));
+walls.push(new Rectangulo(585, 20, 3, 109, "gray"));
+walls.push(new Rectangulo(585, 215, 3, 55, "gray"));
+walls.push(new Rectangulo(585, 300, 3, 25, "gray"));
+walls.push(new Rectangulo(585, 360, 3, 25, "gray"));
+walls.push(new Rectangulo(585, 410, 3, 25, "gray"));
+walls.push(new Rectangulo(585, 470, 3, 55, "gray"));
+walls.push(new Rectangulo(622, 20, 3, 55, "gray"));
+walls.push(new Rectangulo(622, 103, 3, 25, "gray"));
+walls.push(new Rectangulo(622, 163, 3, 55, "gray"));
+walls.push(new Rectangulo(622, 271, 3, 55, "gray"));
+walls.push(new Rectangulo(622, 383, 3, 85, "gray"));
+walls.push(new Rectangulo(622, 520, 3, 25, "gray"));
+walls.push(new Rectangulo(659, 80, 3, 25, "gray"));
+walls.push(new Rectangulo(659, 220, 3, 25, "gray"));
+walls.push(new Rectangulo(659, 328, 3, 85, "gray"));
+walls.push(new Rectangulo(659, 439, 3, 25, "gray"));
+walls.push(new Rectangulo(659, 499, 3, 53, "gray"));
+walls.push(new Rectangulo(696, 50, 3, 83, "gray"));
+walls.push(new Rectangulo(696, 190, 3, 25, "gray"));
+walls.push(new Rectangulo(696, 248, 3, 25, "gray"));
+walls.push(new Rectangulo(696, 300, 3, 80, "gray"));
+walls.push(new Rectangulo(696, 411, 3, 25, "gray"));
+walls.push(new Rectangulo(696, 470, 3, 55, "gray"));
+walls.push(new Rectangulo(733, 109, 3, 75, "gray"));
+walls.push(new Rectangulo(733, 218, 3, 25, "gray"));
+walls.push(new Rectangulo(733, 272, 3, 55, "gray"));
+walls.push(new Rectangulo(733, 386, 3, 75, "gray"));
+walls.push(new Rectangulo(733, 499, 3, 53, "gray"));
+walls.push(new Rectangulo(770, 20, 4, 530, "gray"));
 
 //Metas.
 const target = new Rectangulo(740, 555, 30, 30, "red");
@@ -221,7 +329,6 @@ document.addEventListener("keydown", (e) => {
 
 // Función para actualizar el juego
 function update() {
-    audio.play();
     if (!pause && !playerOver) {
         //Inicializamos el tiempo de juego.
         currentTime = new Date();
@@ -279,14 +386,11 @@ function update() {
     // Verificar si el jugador llegó a alguna de las metas
     if (!hasWon && (player.seTocan(target))) {
         audio3.play();
+        pause = true; // Pausar el juego
+        hasWon = true; // Establecer la bandera de victoria a true
         // Obtener el tiempo de juego actual
         const victoryTime = (currentTime - startTime) / 1000;
         document.getElementById("victory-time").textContent = victoryTime.toFixed(1);
-
-        // Mostrar el mensaje de victoria
-        document.getElementById("victory-message").classList.remove("hidden");
-        pause = true; // Pausar el juego
-        hasWon = true; // Establecer la bandera de victoria a true
     }
 
     repaint();
@@ -303,9 +407,10 @@ document.getElementById("play-again-button").addEventListener("click", function 
 
 // Función para volver a pintar el canvas
 function repaint() {
+    audio.play();
     if (!pause && !playerOver) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+        //ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
         //player.paint(ctx);
         ctx.drawImage(image, player.x, player.y, 20, 20);
