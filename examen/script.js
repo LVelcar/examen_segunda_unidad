@@ -80,7 +80,7 @@ walls.push(new Rectangulo(15, 103, 50, 2, "gray"));
 walls.push(new Rectangulo(62, 73, 38, 2, "gray"));
 walls.push(new Rectangulo(62, 132, 60, 2, "gray"));
 walls.push(new Rectangulo(101, 103, 74, 2, "gray"));
-walls.push(new Rectangulo(75, 160, 100, 2, "gray"));
+walls.push(new Rectangulo(100, 160, 80, 2, "gray"));
 walls.push(new Rectangulo(15, 188, 50, 2, "gray"));
 walls.push(new Rectangulo(60, 244, 40, 2, "gray"));
 walls.push(new Rectangulo(100, 215, 40, 2, "gray"));
@@ -122,7 +122,7 @@ walls.push(new Rectangulo(286, 187, 34, 2, "gray"));
 walls.push(new Rectangulo(286, 243, 34, 2, "gray"));
 walls.push(new Rectangulo(286, 271, 79, 2, "gray"));
 walls.push(new Rectangulo(286, 327, 110, 2, "gray"));
-walls.push(new Rectangulo(286, 494, 70, 2, "gray"));
+walls.push(new Rectangulo(300, 494, 45, 2, "gray"));
 walls.push(new Rectangulo(286, 550, 30, 2, "gray"));
 walls.push(new Rectangulo(324, 48, 34, 2, "gray"));
 walls.push(new Rectangulo(324, 215, 225, 2, "gray"));
@@ -134,7 +134,7 @@ walls.push(new Rectangulo(361, 187, 34, 2, "gray"));
 walls.push(new Rectangulo(361, 243, 76, 2, "gray"));
 walls.push(new Rectangulo(361, 299, 76, 2, "gray"));
 walls.push(new Rectangulo(361, 355, 76, 2, "gray"));
-walls.push(new Rectangulo(361, 467, 34, 2, "gray"));
+walls.push(new Rectangulo(370, 467, 30, 2, "gray"));
 walls.push(new Rectangulo(402, 160, 70, 2, "gray"));
 walls.push(new Rectangulo(402, 383, 70, 2, "gray"));
 walls.push(new Rectangulo(402, 411, 34, 2, "gray"));
@@ -142,14 +142,14 @@ walls.push(new Rectangulo(402, 494, 34, 2, "gray"));
 walls.push(new Rectangulo(442, 187, 62, 2, "gray"));
 walls.push(new Rectangulo(442, 271, 34, 2, "gray"));
 walls.push(new Rectangulo(442, 438, 34, 2, "gray"));
-walls.push(new Rectangulo(442, 466, 63, 2, "gray"));
+walls.push(new Rectangulo(435, 466, 40, 2, "gray"));
 walls.push(new Rectangulo(442, 522, 34, 2, "gray"));
 walls.push(new Rectangulo(472, 132, 229, 2, "gray"));
 walls.push(new Rectangulo(472, 243, 34, 2, "gray"));
 walls.push(new Rectangulo(472, 355, 114, 2, "gray"));
 walls.push(new Rectangulo(472, 411, 34, 2, "gray"));
 walls.push(new Rectangulo(472, 494, 73, 2, "gray"));
-walls.push(new Rectangulo(472, 550, 34, 2, "gray"));
+walls.push(new Rectangulo(480, 550, 30, 2, "gray"));
 walls.push(new Rectangulo(511, 271, 73, 2, "gray"));
 walls.push(new Rectangulo(511, 299, 73, 2, "gray"));
 walls.push(new Rectangulo(511, 383, 34, 2, "gray"));
@@ -176,7 +176,7 @@ walls.push(new Rectangulo(662, 550, 74, 2, "gray"));
 walls.push(new Rectangulo(737, 48, 34, 2, "gray"));
 walls.push(new Rectangulo(699, 75, 34, 2, "gray"));
 walls.push(new Rectangulo(699, 215, 74, 2, "gray"));
-walls.push(new Rectangulo(699, 355, 74, 2, "gray"));
+walls.push(new Rectangulo(699, 355, 40, 2, "gray"));
 walls.push(new Rectangulo(699, 383, 34, 2, "gray"));
 
     // Obstáculos Verticales.
@@ -415,7 +415,7 @@ function repaint() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //player.paint(ctx);
+
         ctx.drawImage(image, player.x, player.y, 20, 20);
 
         // Pintar obstáculos
@@ -424,7 +424,6 @@ function repaint() {
         }
 
         // Pintar puntos de meta.
-        //target.paint(ctx);
         ctx.drawImage(image2, target.x, target.y, 30,30);
 
         //Evaluamos el tiempo de juego.
