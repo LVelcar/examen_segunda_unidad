@@ -11,8 +11,8 @@ var speed = 1;
 let startTime = null;
 let currentTime = null;
 let elapsedTime = 0;
-let playerLife = 5; 
-const maxPlayerLife = 5;
+let playerLife = 7; 
+const maxPlayerLife = 7;
 let playerOver = false;
 let hasWon = false;
 
@@ -37,6 +37,10 @@ audio2.src = "assets/choque.mp3";
 
 let audio3 = new Audio();
 audio3.src = "assets/musica-victoria.mp3";
+
+//Imagen fondo.
+const backgroundImage = new Image();
+backgroundImage.src = "assets/fondo.jpg"; 
 
 // Definimos la clase para crear nuestros objetos.
 class Rectangulo {
@@ -69,15 +73,15 @@ const player = new Rectangulo(30, 4, 20, 20, "blue");
 
 // Crear obstáculos del laberinto.
 // Obstáculos horizontales.
-walls.push(new Rectangulo(15, 20, 5, 560, "gray"));
-walls.push(new Rectangulo(15, 578, 714, 4, "gray"));
-walls.push(new Rectangulo(60, 20, 711, 4, "gray"));
-walls.push(new Rectangulo(15, 103, 53, 2, "gray"));
+walls.push(new Rectangulo(10, 20, 5, 584, "gray"));
+walls.push(new Rectangulo(11, 600, 714, 4, "gray"));
+walls.push(new Rectangulo(60, 8, 730, 4, "gray"));
+walls.push(new Rectangulo(15, 103, 50, 2, "gray"));
 walls.push(new Rectangulo(62, 73, 38, 2, "gray"));
-walls.push(new Rectangulo(62, 132, 70, 2, "gray"));
+walls.push(new Rectangulo(62, 132, 60, 2, "gray"));
 walls.push(new Rectangulo(101, 103, 74, 2, "gray"));
-walls.push(new Rectangulo(65, 160, 110, 2, "gray"));
-walls.push(new Rectangulo(15, 188, 53, 2, "gray"));
+walls.push(new Rectangulo(75, 160, 100, 2, "gray"));
+walls.push(new Rectangulo(15, 188, 50, 2, "gray"));
 walls.push(new Rectangulo(60, 244, 40, 2, "gray"));
 walls.push(new Rectangulo(100, 215, 40, 2, "gray"));
 walls.push(new Rectangulo(62, 298, 76, 2, "gray"));
@@ -176,7 +180,7 @@ walls.push(new Rectangulo(699, 355, 74, 2, "gray"));
 walls.push(new Rectangulo(699, 383, 34, 2, "gray"));
 
     // Obstáculos Verticales.
-walls.push(new Rectangulo(63, 22, 3, 52, "gray"));
+walls.push(new Rectangulo(63, 15, 3, 58, "gray"));
 walls.push(new Rectangulo(63, 108, 3, 25, "gray"));
 walls.push(new Rectangulo(63, 190, 3, 54, "gray"));
 walls.push(new Rectangulo(63, 275, 3, 25, "gray"));
@@ -187,7 +191,7 @@ walls.push(new Rectangulo(101, 160, 3, 51, "gray"));
 walls.push(new Rectangulo(101, 244, 3, 51, "gray"));
 walls.push(new Rectangulo(101, 327, 3, 25, "gray"));
 walls.push(new Rectangulo(101, 411, 3, 109, "gray"));
-walls.push(new Rectangulo(101, 551, 3, 25, "gray"));
+walls.push(new Rectangulo(101, 551, 3, 50, "gray"));
 walls.push(new Rectangulo(138, 190, 3, 81, "gray"));
 walls.push(new Rectangulo(138, 299, 3, 25, "gray"));
 walls.push(new Rectangulo(138, 355, 3, 139, "gray"));
@@ -197,7 +201,7 @@ walls.push(new Rectangulo(175, 273, 3, 25, "gray"));
 walls.push(new Rectangulo(175, 357, 3, 25, "gray"));
 walls.push(new Rectangulo(175, 415, 3, 25, "gray"));
 walls.push(new Rectangulo(175, 523, 3, 25, "gray"));
-walls.push(new Rectangulo(212, 20, 3, 55, "gray"));
+walls.push(new Rectangulo(212, 15, 3, 55, "gray"));
 walls.push(new Rectangulo(212, 103, 3, 55, "gray"));
 walls.push(new Rectangulo(212, 189, 3, 25, "gray"));
 walls.push(new Rectangulo(212, 249, 3, 25, "gray"));
@@ -226,12 +230,12 @@ walls.push(new Rectangulo(361, 161, 3, 25, "gray"));
 walls.push(new Rectangulo(361, 220, 3, 25, "gray"));
 walls.push(new Rectangulo(361, 276, 3, 25, "gray"));
 walls.push(new Rectangulo(361, 354, 3, 80, "gray"));
-walls.push(new Rectangulo(361, 523, 3, 55, "gray"));
-walls.push(new Rectangulo(399, 20, 3, 25, "gray"));
+walls.push(new Rectangulo(361, 523, 3, 45, "gray"));
+walls.push(new Rectangulo(399, 15, 3, 28, "gray"));
 walls.push(new Rectangulo(399, 161, 3, 25, "gray"));
 walls.push(new Rectangulo(399, 245, 3, 25, "gray"));
 walls.push(new Rectangulo(399, 415, 3, 54, "gray"));
-walls.push(new Rectangulo(399, 500, 3, 80, "gray"));
+walls.push(new Rectangulo(399, 500, 3, 100, "gray"));
 walls.push(new Rectangulo(436, 50, 3, 25, "gray"));
 walls.push(new Rectangulo(436, 132, 3, 25, "gray"));
 walls.push(new Rectangulo(436, 190, 3, 25, "gray"));
@@ -239,38 +243,38 @@ walls.push(new Rectangulo(436, 273, 3, 107, "gray"));
 walls.push(new Rectangulo(436, 410, 3, 25, "gray"));
 walls.push(new Rectangulo(436, 411, 3, 25, "gray"));
 walls.push(new Rectangulo(436, 468, 3, 25, "gray"));
-walls.push(new Rectangulo(436, 523, 3, 25, "gray"));
-walls.push(new Rectangulo(473, 20, 3, 25, "gray"));
+walls.push(new Rectangulo(436, 523, 3, 40, "gray"));
+walls.push(new Rectangulo(473, 15, 3, 28, "gray"));
 walls.push(new Rectangulo(473, 104, 3, 25, "gray"));
 walls.push(new Rectangulo(473, 244, 3, 25, "gray"));
 walls.push(new Rectangulo(473, 292, 3, 65, "gray"));
 walls.push(new Rectangulo(473, 383, 3, 25, "gray"));
 walls.push(new Rectangulo(473, 440, 3, 25, "gray"));
-walls.push(new Rectangulo(473, 498, 3, 25, "gray"));
+walls.push(new Rectangulo(473, 498, 3, 28, "gray"));
 walls.push(new Rectangulo(510, 48, 3, 55, "gray"));
 walls.push(new Rectangulo(510, 138, 3, 52, "gray"));
 walls.push(new Rectangulo(510, 243, 3, 25, "gray"));
 walls.push(new Rectangulo(510, 303, 3, 25, "gray"));
 walls.push(new Rectangulo(510, 359, 3, 25, "gray"));
 walls.push(new Rectangulo(510, 412, 3, 25, "gray"));
-walls.push(new Rectangulo(510, 523, 3, 25, "gray"));
+walls.push(new Rectangulo(510, 523, 3, 29, "gray"));
 walls.push(new Rectangulo(547, 190, 3, 55, "gray"));
 walls.push(new Rectangulo(547, 327, 3, 25, "gray"));
 walls.push(new Rectangulo(547, 387, 3, 25, "gray"));
 walls.push(new Rectangulo(547, 440, 3, 55, "gray"));
-walls.push(new Rectangulo(547, 550, 3, 25, "gray"));
-walls.push(new Rectangulo(585, 20, 3, 109, "gray"));
+walls.push(new Rectangulo(547, 550, 3, 50, "gray"));
+walls.push(new Rectangulo(585, 15, 3, 119, "gray"));
 walls.push(new Rectangulo(585, 215, 3, 55, "gray"));
 walls.push(new Rectangulo(585, 300, 3, 25, "gray"));
 walls.push(new Rectangulo(585, 360, 3, 25, "gray"));
 walls.push(new Rectangulo(585, 410, 3, 25, "gray"));
 walls.push(new Rectangulo(585, 470, 3, 55, "gray"));
-walls.push(new Rectangulo(622, 20, 3, 55, "gray"));
+walls.push(new Rectangulo(622, 15, 3, 60, "gray"));
 walls.push(new Rectangulo(622, 103, 3, 25, "gray"));
 walls.push(new Rectangulo(622, 163, 3, 55, "gray"));
 walls.push(new Rectangulo(622, 271, 3, 55, "gray"));
 walls.push(new Rectangulo(622, 383, 3, 85, "gray"));
-walls.push(new Rectangulo(622, 520, 3, 25, "gray"));
+walls.push(new Rectangulo(622, 520, 3, 31, "gray"));
 walls.push(new Rectangulo(659, 80, 3, 25, "gray"));
 walls.push(new Rectangulo(659, 220, 3, 25, "gray"));
 walls.push(new Rectangulo(659, 328, 3, 85, "gray"));
@@ -281,16 +285,21 @@ walls.push(new Rectangulo(696, 190, 3, 25, "gray"));
 walls.push(new Rectangulo(696, 248, 3, 25, "gray"));
 walls.push(new Rectangulo(696, 300, 3, 80, "gray"));
 walls.push(new Rectangulo(696, 411, 3, 25, "gray"));
-walls.push(new Rectangulo(696, 470, 3, 55, "gray"));
+walls.push(new Rectangulo(696, 470, 3, 43, "gray"));
 walls.push(new Rectangulo(733, 109, 3, 75, "gray"));
-walls.push(new Rectangulo(733, 218, 3, 25, "gray"));
+walls.push(new Rectangulo(733, 218, 3, 26, "gray"));
 walls.push(new Rectangulo(733, 272, 3, 55, "gray"));
-walls.push(new Rectangulo(733, 386, 3, 75, "gray"));
+walls.push(new Rectangulo(733, 386, 3, 79, "gray"));
 walls.push(new Rectangulo(733, 499, 3, 53, "gray"));
-walls.push(new Rectangulo(770, 20, 4, 530, "gray"));
+walls.push(new Rectangulo(786, 15, 4, 536, "gray"));
 
 //Metas.
 const target = new Rectangulo(740, 555, 30, 30, "red");
+
+backgroundImage.onload = function() {
+    // Dibujar la imagen de fondo en el canvas
+    ctx.drawImage(backgroundImage, canvas.width, canvas.height);
+};
 
 // Evento para manejar las teclas
 document.addEventListener("keydown", (e) => {
@@ -311,7 +320,7 @@ document.addEventListener("keydown", (e) => {
             pause = !pause;
             break;
         case 82: 
-        if (!hasWon) {
+        if (!hasWon && !playerOver) {
             // Solo permite el reinicio si no ha ganado
             resetGame();
         }
@@ -404,7 +413,7 @@ function repaint() {
     audio.play();
     if (!pause && !playerOver) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
         //player.paint(ctx);
         ctx.drawImage(image, player.x, player.y, 20, 20);
@@ -426,7 +435,7 @@ function repaint() {
         elapsedTime = (currentTime - startTime) / 1000; // Tiempo en segundos.
       
     } else if (playerOver) {
-
+        gameOver();
     } else {
         // Pantalla de pausa
         ctx.fillStyle = "rgba(237, 233, 231 , 0.6)";
@@ -466,16 +475,20 @@ function updatePlayerLife() {
 
 // Función para visualizar la pantalla Game Over.
 function gameOver() {
+    // Mostrar la pantalla de Game Over
+    document.getElementById("game-over-message").classList.remove("hidden2");
     playerOver = true;
     pause = true;
-    ctx.fillStyle = "rgba(237, 233, 231, 0.6)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.font = "50px Verdana";
-    ctx.fontWeight = "Bold";
-    ctx.fillStyle = "black";
-    ctx.fillText("GAME OVER", 250, 295);
 }
+
+// Evento de clic para el botón "Jugar de nuevo" en la pantalla de Game Over
+document.getElementById("play-again-button-game-over").addEventListener("click", function () {
+    // Ocultar la pantalla de Game Over
+    document.getElementById("game-over-message").classList.add("hidden2");
+
+    // Reiniciar el juego
+    resetGame();
+});
 
 // Iniciar el juego y calcular el tiempo de carga
 startTime = new Date();
