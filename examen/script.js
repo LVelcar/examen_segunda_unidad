@@ -294,7 +294,7 @@ walls.push(new Rectangulo(733, 499, 3, 53, "gray"));
 walls.push(new Rectangulo(786, 15, 4, 536, "gray"));
 
 //Metas.
-const target = new Rectangulo(740, 555, 30, 30, "red");
+const target = new Rectangulo(746, 563, 30, 30, "red");
 
 backgroundImage.onload = function() {
     // Dibujar la imagen de fondo en el canvas
